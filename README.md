@@ -1,33 +1,25 @@
 # @mapleperson/maple-ui
 
-## Project setup
+## install
 
 ```base
-npm install
+npm install @mapleperson/maple-ui --S
 ```
 
-### Compiles and hot-reloads for development
+### import & use
 
-```base
-npm run serve
+```js
+import Vue from 'vue'
+import maple from '@mapleperson/maple-ui'
+import "@mapleperson/maple-ui/dist/maple.css"
+
+Vue.use(maple);
 ```
 
-### Compiles and minifies for production
+### template
 
-```base
-npm run build
-```
-
-### Run your tests
-
-```base
-npm run test
-```
-
-### Lints and fixes files
-
-```base
-npm run lint
+```html
+<maple-icon type="dianzan"/>
 ```
 
 ### Customize configuration
