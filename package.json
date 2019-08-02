@@ -1,10 +1,14 @@
 {
   "name": "@mapleperson/maple-ui",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.21",
+  "main": "./dist/maple.common.js",
+  "private": false,
+  "author": "ruimeng <mengrv@foxmail.com>",
+  "license": "ISC",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build  --target  lib  --name maple  ./src/components/index.js"
   },
   "dependencies": {
     "core-js": "^2.6.5",
