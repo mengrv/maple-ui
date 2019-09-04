@@ -16,10 +16,9 @@
             </li>
             <li>
                 <h1>Icon</h1>
-                <Icon type="dianzan"></Icon>
-                <Icon type="shoucang"></Icon>
-                <Icon type="caidan"></Icon>
-                <Icon type="you"></Icon>
+                <Icon type="html-line"></Icon>
+                <Icon type="code-line"></Icon>
+                <Icon type="heart-fill"></Icon>
             </li>
         </ul>
     </div>
@@ -47,7 +46,7 @@
       },
       showLoading () {
         this.loading = true;
-        setTimeout(() => this.loading = false, 3000)
+        setTimeout(() => this.loading = false, 3000);
       }
     },
     components: {

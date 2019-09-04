@@ -4,6 +4,7 @@ import router from './router'
 import store  from './store'
 import './style/flex.less'
 import './assets/iconfont/iconfont.css'
+import './style/index.less'
 
 Vue.config.productionTip = false;
 

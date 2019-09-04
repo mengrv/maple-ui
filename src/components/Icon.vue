@@ -13,7 +13,7 @@
     },
     computed: {
       iconTag () {
-        return `icon--${this.type}`;
+        return `icon-${this.type}`;
       }
     }
   }
