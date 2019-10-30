@@ -24,6 +24,20 @@
 				<h1>Tree</h1>
 				<Tree :data="myData"></Tree>
 			</li>
+			<li>
+				<h1>Form</h1>
+				<Form :model='ruleForm' :rules='rules' ref='loginForm'>
+					<FormItem label='用户名' prop='name'>
+						<Input  v-model="ruleForm.name" type="text"/>
+					</FormItem>
+					<FormItem label='密码' prop='pwd'>
+						<Input v-model="ruleForm.pwd" type="password"/>
+					</FormItem>
+					<FormItem>
+						<button @click='submitForm'>signIn</button>
+					</FormItem>
+				</Form>
+			</li>
 		</ul>
 	</div>
 </template>
@@ -35,6 +49,10 @@
 	import Error404 from "@/components/Error-404";
 	import Icon from "@/components/Icon";
 	import Tree from "@/components/Tree/Tree";
+	import FormItem from "@/components/Form/FormItem";
+	import Form from "@/components/Form/Form";
+	import Input from "@/components/Input";
+
 
 	const myData = [
 		{
@@ -75,7 +93,18 @@
 				logo,
 				loading: false,
 				flex: true,
-				myData
+				myData,
+				ruleForm: {
+					name: "",
+					pwd: ""
+				},
+				rules: {
+					name: [
+						{ required: true, message: "请输入名称" },
+						{ min: 6, max: 10, message: "请输入6~10位用户名" }
+					],
+					pwd: [{ required: true, message: "请输入密码" }]
+				}
 			}
 		},
 		methods: {
@@ -86,13 +115,27 @@
 				this.loading = true;
 				setTimeout(() => this.loading = false, 3000);
 			},
+			submitForm() {
+				// 调用组件的validate方法获取验证结果
+				this.$refs.loginForm.validate(valid => {
+					if (valid) {
+						alert("提交登录！")
+					} else {
+						console.log("校验失败")
+						return false
+					}
+				})
+			}
 		},
 		components: {
+			FormItem,
 			Icon,
 			Error404,
 			Spin,
 			Picture,
-			Tree
+			Tree,
+			Form,
+			Input
 		}
 	}
 </script>
