@@ -1,5 +1,5 @@
 <template>
-    <img :src="src" :style="{backgroundColor: backgroundColor}" :class="{error:isError}"
+    <img :src="imgSrc" :style="{backgroundColor: backgroundColor}" :class="{error:isError}"
          @error.once="imgError" ref="img" :alt="alt" @click="$emit('click')"/>
 </template>
 
@@ -10,6 +10,10 @@
     name: "Picture",
     props: {
       src: {
+        type: String,
+        default: ''
+      },
+      baseSrc: { // 基础图片地址
         type: String,
         default: ''
       },
@@ -29,6 +33,11 @@
     data () {
       return {
         isError: false,
+      }
+    },
+    computed: {
+      imgSrc(){
+        return this.baseSrc + this.src;
       }
     },
     methods: {
